@@ -14,5 +14,15 @@ namespace DA_Xuong.Database
         public DbSet<TACGIA> TACGIA { get; set;}
         public DbSet<CHITIETTHELOAI> CHITIETTHELOAI { get; set; }
         public DbSet<CHITIETHINHANH> CHITIETHINHANH { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TACGIA>()
+                .HasMany(e => e.SACH)
+                .WithOne(e => e.TACGIA)
+                .HasForeignKey(e => e.IDTACGIA)
+                .HasPrincipalKey(e => e.IDTACGIA);
+
+        }
     }
 }

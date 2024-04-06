@@ -20,7 +20,6 @@ namespace DA_Xuong.Controllers
         public IActionResult Index()
         {
             List<SACH> projects = _db.SACH.ToList();
-          
             return View(projects);
            
         }
